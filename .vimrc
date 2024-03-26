@@ -29,7 +29,7 @@ set cinoptions=g-1
 "  set backup		" keep a backup file
 "endif
 set nobackup        "I hate backup files.
-set number
+set relativenumber
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -37,12 +37,12 @@ set incsearch		" do incremental searching
 "设置非兼容模式
 set nocp
 
-"set encoding=utf-8
+set encoding=utf-8
 ""set encoding=gb2312
-set langmenu=zh_CN.gb2312
-language message zh_CN.gb2312
+" set langmenu=zh_CN.gb2312
+" language message zh_CN.gb2312
 
-set fileencoding=gbk2312
+" set fileencoding=gbk2312
 set ts=4
 set sw=4
 set smartindent
@@ -69,7 +69,7 @@ nmap <Leader>q :q<CR>
 " 定义快捷键
 nmap <Leader>w :w<CR>
 " 删除光标所在单词
-nmap e daw
+" nmap e daw
 " close TAB
 nmap tabc :tabc <CR>
 " go to previous table
@@ -229,8 +229,8 @@ set hlsearch
 syntax enable
 syntax on
 " 使用ctrlc, v就可以实现vim之间的复制粘贴
-vnoremap <C-c> :w! ~/tmp/clipboard.txt <CR>
-inoremap <C-v> <Esc>:r ~/tmp/clipboard.txt <CR>
+" vnoremap <C-c> :w! ~/tmp/clipboard.txt <CR>
+" inoremap <C-v> <Esc>:r ~/tmp/clipboard.txt <CR>
 " 编译快捷键
 autocmd filetype python nnoremap <F1> :w <bar> exec '!python '.shellescape('%')<CR> autocmd filetype c nnoremap <F1> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype cpp nnoremap <F1> :w <bar> exec '!g++ --std=c++11 -pthread '.shellescape('%').' -o ./bin/'.shellescape('%:r').' && ./bin/'.shellescape('%:r')<CR>
@@ -241,33 +241,33 @@ autocmd filetype java nnoremap <F2> :w <bar> exec '!java -cp ./bin '.shellescape
 
 
 let g:tlist_markdown_settings = 'markdown;h:Headlins'
-"新建.c,.h,.sh,.Java文件，自动插入文件头
-autocmd BufNewFile *.cpp,*.[ch],*.sh,*.Java,*.go exec ":call SetTitle()"
-"""定义函数SetTitle，自动插入文件头
-func SetTitle()
-    "如果文件类型为.sh文件
-    if &filetype == 'sh'
-        call setline(1,"\#########################################################################")
-        call append(line("."),   "\# File Name:    ".expand("%"))
-        call append(line(".")+1, "\# Author:       程序员Carl")
-        call append(line(".")+2, "\# mail:         programmercarl@163.com")
-        call append(line(".")+3, "\# Created Time: ".strftime("%c"))
-        call append(line(".")+4, "\#########################################################################")
-        call append(line(".")+5, "\#!/bin/bash")
-        call append(line(".")+6, "")
-    else
-        call setline(1, "/* ************************************************************************")
-        call append(line("."),   "> File Name:     ".expand("%"))
-        call append(line(".")+1, "> Author:        程序员Carl")
-        call append(line(".")+2, "> 微信公众号:    代码随想录")
-        call append(line(".")+3, "> Created Time:  ".strftime("%c"))
-        call append(line(".")+4, "> Description:   ")
-        call append(line(".")+5, " ************************************************************************/")
-        call append(line(".")+6, "")
-    endif
-    "新建文件后，自动定位到文件末尾
-    autocmd BufNewFile * normal G
-endfunc
+""新建.c,.h,.sh,.Java文件，自动插入文件头
+"autocmd BufNewFile *.cpp,*.[ch],*.sh,*.Java,*.go exec ":call SetTitle()"
+""""定义函数SetTitle，自动插入文件头
+"func SetTitle()
+"    "如果文件类型为.sh文件
+"    if &filetype == 'sh'
+"        call setline(1,"\#########################################################################")
+"        call append(line("."),   "\# File Name:    ".expand("%"))
+"        call append(line(".")+1, "\# Author:       程序员Carl")
+"        call append(line(".")+2, "\# mail:         programmercarl@163.com")
+"        call append(line(".")+3, "\# Created Time: ".strftime("%c"))
+"        call append(line(".")+4, "\#########################################################################")
+"        call append(line(".")+5, "\#!/bin/bash")
+"        call append(line(".")+6, "")
+"    else
+"        call setline(1, "/* ************************************************************************")
+"        call append(line("."),   "> File Name:     ".expand("%"))
+"        call append(line(".")+1, "> Author:        程序员Carl")
+"        call append(line(".")+2, "> 微信公众号:    代码随想录")
+"        call append(line(".")+3, "> Created Time:  ".strftime("%c"))
+"        call append(line(".")+4, "> Description:   ")
+"        call append(line(".")+5, " ************************************************************************/")
+"        call append(line(".")+6, "")
+"    endif
+"    "新建文件后，自动定位到文件末尾
+"    autocmd BufNewFile * normal G
+" endfunc
 
 
 " shortcut for markdown
