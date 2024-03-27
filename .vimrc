@@ -124,9 +124,9 @@ nmap <Leader>t :Tab /
 " --c++-kinds=+p  : Adds prototypes in the database for C/C++ files.
 "--fields=+iaS   : Adds inheritance (i), access (a) and function
 "                  signatures (S) information.
-"--extra=+q      : Adds context to the tag name. Note: Without this
+"--extras=+q      : Adds context to the tag name. Note: Without this
 "                  option, the script cannot get class members.
-nmap<leader>tg :!ctags -R --fields=+aS --extra=+q<CR>
+nmap<leader>tg :!ctags -R --fields=+aS --extras=+q<CR>
 " java jdk 补全
 map! <C-O> <C-X><C-O>
 " 使用NERDTree插件查看工程文件。设置快捷键
