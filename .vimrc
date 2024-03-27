@@ -126,6 +126,7 @@ nmap <Leader>t :Tab /
 "                  signatures (S) information.
 "--extras=+q      : Adds context to the tag name. Note: Without this
 "                  option, the script cannot get class members.
+" 如果显示没有--extras选项，请将原有ctags卸载，重新安装universal版本的ctag：sudo apt install universal-ctags, 使用ctags --version可以查看版本。
 nmap<leader>tg :!ctags -R --fields=+aS --extras=+q<CR>
 " java jdk 补全
 map! <C-O> <C-X><C-O>
